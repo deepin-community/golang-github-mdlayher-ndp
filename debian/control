@@ -1,15 +1,30 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-mdlayher-ndp
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Mathias Gibbens <gibmat@debian.org>
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+               golang-github-google-go-cmp-dev,
+               golang-golang-x-net-dev
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-mdlayher-ndp
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-mdlayher-ndp.git
+Homepage: https://github.com/mdlayher/ndp
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/mdlayher/ndp
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-mdlayher-ndp-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+         golang-github-google-go-cmp-dev,
+         golang-golang-x-net-dev
+Description: Golang implementation of the Neighbor Discovery Protocol (library)
+ Package ndp implements the Neighbor Discovery Protocol, as described
+ in RFC 4861 (https://tools.ietf.org/html/rfc4861).
+ .
+ To learn more about NDP, and how to use this package, please visit
+ https://mdlayher.com/blog/network-protocol-breakdown-ndp-and-go/.
